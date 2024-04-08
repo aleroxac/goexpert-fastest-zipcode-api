@@ -1,0 +1,70 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Segundo desafio do treinamento GoExpert(FullCycle)",
+        "title": "goexpert-fatest-zipcode-api",
+        "termsOfService": "http://swagger.io/terms",
+        "contact": {
+            "name": "Augusto Cardoso dos Santos",
+            "url": "https://github.com/aleroxac",
+            "email": "acardoso.ti@gmail.com"
+        },
+        "license": {
+            "name": "Full Cycle License",
+            "url": "https://fullcycle.com.br"
+        },
+        "version": "1.0.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/cep/{cep}": {
+            "get": {
+                "description": "Get CEP",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "cep"
+                ],
+                "summary": "Get CEP",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "cep address",
+                        "name": "cep",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/dto.Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "dto.Error": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
